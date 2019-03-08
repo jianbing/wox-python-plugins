@@ -16,13 +16,27 @@ Wox是国人开源的Windows平台下的快速启动神器，基于JSONRPC和插
 
 如果代码出现了报错，Wox会呆住，没什么反馈，不方便进行错误定位和代码调试
 
+如导入模块名称写错
+
+```python
+import pyperclip1
+```
+
 ![](https://upload-images.jianshu.io/upload_images/8377832-6447ee3397da9258.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ### Wox.Plugin.HelloWordEx
 
 HelloWord升级版，加入了报错检测和提醒，日志记录，方便脚本的开发和调试
 
+还是刚刚的错误
+
+```python
+import pyperclip1
+```
+
 ![](https://upload-images.jianshu.io/upload_images/8377832-3877cfa8f503d141.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+查看error.log
 
 ```
 Tue, 19 Feb 2019 17:33:16 util.py[line:29] ERROR Traceback (most recent call last):
