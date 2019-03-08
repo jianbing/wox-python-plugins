@@ -38,7 +38,7 @@ def load_module():
         os.system(r'explorer "{}"'.format(os.getcwd()))
 
 
-def debug(func):
+def _debug(func):
     @functools.wraps(func)
     def wrap(*args, **kwargs):
         try:
@@ -52,9 +52,13 @@ def debug(func):
     return wrap
 
 
-class DebugMeta(type):
+class _DebugMeta(type):
     def __new__(cls, clsname, bases, attrs):
         for func_name, func in attrs.items():
             if isinstance(func, types.FunctionType):
-                attrs[func_name] = debug(func)
-        return super(DebugMeta, cls).__new__(cls, clsname, bases, attrs)
+                attrs[func_name] = _debug(func)
+        return super(_DebugMeta, cls).__new__(cls, clsname, bases, attrs)
+
+
+class WoxEx(Wox, metaclass=_DebugMeta):
+    pass
